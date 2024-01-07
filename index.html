@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>小学漢字検索</title>
+  <style>
+            body,
+        html {
+            width: 80%;
+            margin:auto;
+        }
+    .one {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #ff0000;
+    }
+
+    .two {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #00ff0d;
+    }
+
+    .three {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #0011ff;
+    }
+
+    .four {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #ff00f2;
+    }
+
+    .five {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #839106;
+    }
+
+    .six {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #00ffdd;
+    }
+
+    .seven {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #000000;
+    }
+
+
+
+    .outPut {
+      border: solid 2px orange;
+      margin: 1em 0;
+      padding: .8em;
+      border-radius: 0.5em;
+      display: inline-block;
+    }
+
+    textarea {
+      width: 80%;
+      margin: 1em 0;
+      padding: .8em;
+      border-radius: 0.5em;
+      border: 3px solid gray;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>この漢字、小学何年生でならいますか？</h1>
+  <div>
+    <br>漢字を習う学年を調べるアプリです。
+    <br>フォームにテキストを入力またはコピペしてください。
+    <br>漢字の上に習う学年が表示されます。なお、☆は小学校では習わない漢字です。
+    <br><br>参考：文部科学省　学習指導要領「生きる力」　別表　学年別漢字配当表
+  </div>
+  <form action="#" method="get"></form>
+  <textarea class="text" cols="60" rows="10" placeholder="文章を入力" value="aaaa">
+ sample
+ 日本国民は、正当に選挙された国会における代表者を通じて行動し、われらとわれらの子孫のために、諸国民との協和による成果と、わが国全土にわたつて自由のもたらす恵沢を確保し、政府の行為によつて再び戦争の惨禍が起ることのないやうにすることを決意し、ここに主権が国民に存することを宣言し、この憲法を確定する。そもそも国政は、国民の厳粛な信託によるものであつて、その権威は国民に由来し、その権力は国民の代表者がこれを行使し、その福利は国民がこれを享受する。これは人類普遍の原理であり、この憲法は、かかる原理に基くものである。われらは、これに反する一切の憲法、法令及び詔勅を排除する。
+ 日本国民は、恒久の平和を念願し、人間相互の関係を支配する崇高な理想を深く自覚するのであつて、平和を愛する諸国民の公正と信義に信頼して、われらの安全と生存を保持しようと決意した。われらは、平和を維持し、専制と隷従、圧迫と偏狭を地上から永遠に除去しようと努めてゐる国際社会において、名誉ある地位を占めたいと思ふ。われらは、全世界の国民が、ひとしく恐怖と欠乏から免かれ、平和のうちに生存する権利を有することを確認する。
+ われらは、いづれの国家も、自国のことのみに専念して他国を無視してはならないのであつて、政治道徳の法則は、普遍的なものであり、この法則に従ふことは、自国の主権を維持し、他国と対等関係に立たうとする各国の責務であると信ずる。
+ 日本国民は、国家の名誉にかけ、全力をあげてこの崇高な理想と目的を達成することを誓ふ。
+      </textarea></div>
+  <div><button class="submit">習う学年を検索</button>
+    <button class="kesu">フォームをクリア</button>
+  </div>
+  
+
+  <div class="outPut"></div>
+
+
+  <script>
+    const baseText = document.querySelector('.text');
+    const submit = document.querySelector('.submit');
+    const outPut = document.querySelector('.outPut');
+    const kesu = document.querySelector('.kesu');
+
+    function kesiMasu() {
+      baseText.value = "";
+    }
+
+    kesu.addEventListener('click', kesiMasu)
+
+    let s1 = '一右雨円王音下火花貝学気九休玉金空月犬見五口校左三山子四糸字耳七車手十出女小上森人水正生青夕石赤千川先早草足村大男竹中虫町天田土二日入年白八百文木本名目立力林六';
+    let s2 = '引羽雲園遠何科夏家歌画回会海絵外角楽活間丸岩顔汽記帰弓牛魚京強教近兄形計元言原戸古午後語工公広交光考行高黄合谷国黒今才細作算止市矢姉思紙寺自時室社弱首秋週春書少場色食心新親図数西声星晴切雪船線前組走多太体台地池知茶昼長鳥朝直通弟店点電刀冬当東答頭同道読内南肉馬売買麦半番父風分聞米歩母方北毎妹万明鳴毛門夜野友用曜来里理話';
+    let s3 = '悪安暗医委意育員院飲運泳駅央横屋温化荷界開階寒感漢館岸起期客究急級宮球去橋業曲局銀区苦具君係軽血決研県庫湖向幸港号根祭皿仕死使始指歯詩次事持式実写者主守取酒受州拾終習集住重宿所暑助昭消商章勝乗植申身神真深進世整昔全相送想息速族他打対待代第題炭短談着注柱丁帳調追定庭笛鉄転都度投豆島湯登等動童農波配倍箱畑発反坂板皮悲美鼻筆氷表秒病品負部服福物平返勉放味命面問役薬由油有遊予羊洋葉陽様落流旅両緑礼列練路和';
+    let s4 = '愛案以衣位囲胃印英栄塩億加果貨課芽改械害街各覚完官管関観願希季紀喜旗器機議求泣救給挙漁共協鏡競極訓軍郡径型景芸欠結建健験固功好候航康告差菜最材昨札刷殺察参産散残士氏史司試児治辞失借種周祝順初松笑唱焼象照賞臣信成省清静席積折節説浅戦選然争倉巣束側続卒孫帯隊達単置仲貯兆腸低底停的典伝徒努灯堂働特得毒熱念敗梅博飯飛費必票標不夫付府副粉兵別辺変便包法望牧末満未脈民無約勇要養浴利陸良料量輪類令冷例歴連老労録';
+    let s5 = '圧移因永営衛易益液演応往桜恩可仮価河過賀快解格確額刊幹慣眼基寄規技義逆久旧居許境均禁句群経潔件券険検限現減故個護効厚耕鉱構興講混査再災妻採際在財罪雑酸賛支志枝師資飼示似識質舎謝授修述術準序招承証条状常情織職制性政勢精製税責績接設舌絶銭祖素総造像増則測属率損退貸態団断築張提程適敵統銅導徳独任燃能破犯判版比肥非備俵評貧布婦富武復複仏編弁保墓報豊防貿暴務夢迷綿輸余預容略留領';
+    let s6 = '異遺域宇映延沿我灰拡革閣割株干巻看簡危机揮貴疑吸供胸郷勤筋系敬警劇激穴絹権憲源厳己呼誤后孝皇紅降鋼刻穀骨困砂座済裁策冊蚕至私姿視詞誌磁射捨尺若樹収宗就衆従縦縮熟純処署諸除将傷障城蒸針仁垂推寸盛聖誠宣専泉洗染善奏窓創装層操蔵臓存尊宅担探誕段暖値宙忠著庁頂潮賃痛展討党糖届難乳認納脳派拝背肺俳班晩否批秘腹奮並陛閉片補暮宝訪亡忘棒枚幕密盟模訳郵優幼欲翌乱卵覧裏律臨朗論';
+
+    let kanji = /([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu;
+
+    function kensaku() {
+      let result = '';
+      for (let i = 0; i < baseText.value.length; i++) {
+        if ('\n' === baseText.value[i]) {
+          result += '<br>';
+        } else if (kanji.test(baseText.value[i]) === false) {
+          result += baseText.value[i];
+        } else if (s1.indexOf(baseText.value[i]) != -1) {
+          result += '<ruby>' + baseText.value[i] + '<rt class="one">1</rt></ruby>';
+        } else if (s2.indexOf(baseText.value[i]) != -1) {
+          result += '<ruby>' + baseText.value[i] + '<rt class="two">2</rt></ruby>';
+        } else if (s3.indexOf(baseText.value[i]) != -1) {
+          result += '<ruby>' + baseText.value[i] + '<rt class="three">3</rt></ruby>';
+        } else if (s4.indexOf(baseText.value[i]) != -1) {
+          result += '<ruby>' + baseText.value[i] + '<rt class="four">4</rt></ruby>';
+        } else if (s5.indexOf(baseText.value[i]) != -1) {
+          result += '<ruby>' + baseText.value[i] + '<rt class="five">5</rt></ruby>';
+        } else if (s6.indexOf(baseText.value[i]) != -1) {
+          result += '<ruby>' + baseText.value[i] + '<rt class="six">6</rt></ruby>';
+        } else {
+          result += '<ruby>' + baseText.value[i] + '<rt class="seven">☆</rt></ruby>';
+        }
+      }
+      outPut.innerHTML = result;
+    }
+    submit.addEventListener('click', kensaku);
+
+
+    kensaku();
+  </script>
+
+</body>
+
+</html>
