@@ -2,3 +2,8 @@
 入力したテキスト内の漢字の習う学年を調べるアプリです。
 
 https://thozk.github.io/education/
+
+
+For Kanji learner's.
+
+https://thozk.github.io/education/kakijun
